@@ -44,10 +44,10 @@ while True:
         print(email, "is valid!")
         break
     
-    # error
+    
     attempts_left -= 1
 
-    # no attempts left - bail out 
+
     if attempts_left == 0:
         gave_up = True
         print("No attempts left, bailing out")
@@ -56,6 +56,7 @@ while True:
     print(email, "is invalid!")
     print("Reason:", err_str)
     print(f"Try again, {attempts_left} attempts left")
+
 
 # your code - end
 if not gave_up:

@@ -37,6 +37,34 @@
 def is_valid_email_address(s):
     
     # your code here
+    
+    check_symbol = s.count("@")
+    
+    if check_symbol != 1: 
+        return 1, "Must have exactly one @!"
+
+    a, post = s.split("@")
+    
+    if len(a) < 3 or len(a) > 16: 
+        return 2, "pre @ part must contain 3 - 16 alfanum chars"
+    
+    elif a.isalnum() == False:
+        return 3, "pre @ part must only contain alfanum chars"
+
+    if post.count(".") != 1:
+        return 4, "post @ part must have exactly one dot!"
+    
+    b, c = post.split(".")
+
+    if len(b) < 2 or len(b) > 8:
+        return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
+    elif b.isalnum() == False:
+        return 6, "part after @ and before . must only contain alfanum chars"
+
+    if c not in ["com", "edu", "org", "gov"]: 
+        return 7, "past-dot part invalid, must be from: com, edu, org, gov"
+
+    return None, "Seems legit"
 
     
 
